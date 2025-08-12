@@ -1,10 +1,10 @@
-## Detect SSH Config Risks
+## Detect-SSHConfig-Risks.sh
 
-This script scans for risky SSH configuration files, such as world-writable files or hidden `.ssh` files outside the `/home` directory, providing a JSON-formatted output for integration with security tools like OSSEC/Wazuh.
+This script scans for risky SSH configuration files, such as world-writable files or hidden `.ssh` files outside the `/home` directory, providing a JSON-formatted output for integration with your SIEM.
 
 ### Overview
 
-The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH configuration files by analyzing their permissions and locations. It outputs results in a standardized JSON format suitable for active response workflows.
+The `Detect-SSHConfig-Risks.sh` script identifies potential security risks in SSH configuration files by analyzing their permissions and locations. It outputs results in a standardized JSON format suitable for active response workflows.
 
 ### Script Details
 
@@ -20,7 +20,7 @@ The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH c
 
 #### Command Line Execution
 ```bash
-./Detect-SSHConfig-Risks
+./Detect-SSHConfig-Risks.sh
 ```
 
 #### Parameters
@@ -28,7 +28,7 @@ The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH c
 | Parameter | Type | Default Value | Description |
 |-----------|------|---------------|-------------|
 | `LOG`     | string | `/var/ossec/active-response/active-responses.log` | Path for active response JSON output |
-| `LogPath` | string | `/tmp/Detect-SSHConfig-Risks.log` | Path for detailed execution logs |
+| `LogPath` | string | `/tmp/Detect-SSHConfig-Risks.sh.log` | Path for detailed execution logs |
 | `LogMaxKB` | int | 100 | Maximum log file size in KB before rotation |
 | `LogKeep` | int | 5 | Number of rotated log files to retain |
 
@@ -36,7 +36,7 @@ The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH c
 
 ```bash
 # Run the script
-./Detect-SSHConfig-Risks
+./Detect-SSHConfig-Risks.sh
 ```
 
 ### Script Execution Flow
@@ -65,7 +65,7 @@ The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH c
 {
   "timestamp": "2025-07-18T10:30:45.123Z",
   "host": "HOSTNAME",
-  "action": "Detect-SSHConfig-Risks",
+  "action": "Detect-SSHConfig-Risks.sh",
   "status": "risky",
   "reason": "Risky SSH config files found",
   "results": [
@@ -87,7 +87,7 @@ The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH c
 {
   "timestamp": "2025-07-18T10:30:45.123Z",
   "host": "HOSTNAME",
-  "action": "Detect-SSHConfig-Risks",
+  "action": "Detect-SSHConfig-Risks.sh",
   "status": "ok",
   "reason": "No risky SSH config files found",
   "results": [],
@@ -117,7 +117,7 @@ The `Detect-SSHConfig-Risks` script identifies potential security risks in SSH c
 #### Debugging
 Enable verbose logging by reviewing the script's log output:
 ```bash
-./Detect-SSHConfig-Risks
+./Detect-SSHConfig-Risks.sh
 ```
 
 ### Contributing
