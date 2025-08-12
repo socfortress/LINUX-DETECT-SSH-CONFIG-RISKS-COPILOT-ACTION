@@ -9,7 +9,7 @@ LogKeep=5
 HostName="$(hostname)"
 RunStart=$(date +%s)
 TmpResults=$(mktemp)
-> "$TmpResults"
+: > "$TmpResults"
 
 WriteLog() {
   local level="$1"
