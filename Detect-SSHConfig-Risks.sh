@@ -80,7 +80,7 @@ final_json=$(jq -n \
   --arg status "$Status" \
   --arg reason "$Reason" \
   --argjson results "$json_array" \
-  --argjson copilot_soar true \
+  --argjson copilot_action true \
   '{
     timestamp: $timestamp,
     host: $host,
@@ -88,7 +88,7 @@ final_json=$(jq -n \
     status: $status,
     reason: $reason,
     results: $results,
-    copilot_soar: $copilot_soar
+    copilot_action: $copilot_action
   }')
 
 tmpfile=$(mktemp)
